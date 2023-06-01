@@ -1,6 +1,6 @@
 # ProjectSeleniumJUnit
 ```
-Bem vindo(a)
+Welcome
 ```
 
 <h3>Test project using Selenium Webdriver and JUnit.<h3>
