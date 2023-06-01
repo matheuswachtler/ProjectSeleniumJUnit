@@ -17,7 +17,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void shouldReturnToInventoryPage() {
+    public void shouldReturnToInventoryPageWhenContinueShoppingButtonIsClicked() {
         cartPage.navigateToUrl(this.webDriver, CartPage.getUrlCartPage());
         cartPage.findAndClickButtonById(this.webDriver, CartPage.getIdContinueShoppingButton());
         Assertions.assertNull(cartPage.findElementById(this.webDriver, CartPage.getIdCheckoutButton()));
@@ -25,9 +25,8 @@ public class CartTest extends BaseTest {
         Assertions.assertTrue(cartPage.compareCurrentUrl(this.webDriver, CartPage.getUrlInventoryPage()));
     }
 
-
     @Test
-    public void shouldGoToCheckoutPage() {
+    public void shouldGoToCheckoutPageWhenCheckoutButtonIsClicked() {
         cartPage.navigateToUrl(this.webDriver, CartPage.getUrlCartPage());
         cartPage.findAndClickButtonById(this.webDriver, CartPage.getIdCheckoutButton());
         Assertions.assertNull(cartPage.findElementById(this.webDriver, CartPage.getIdCheckoutButton()));
