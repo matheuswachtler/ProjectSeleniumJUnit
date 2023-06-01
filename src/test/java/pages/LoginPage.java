@@ -1,8 +1,5 @@
 package pages;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 public class LoginPage extends BasePage {
 
     private static final String urlLoginPage = "https://www.saucedemo.com/";
@@ -33,7 +30,9 @@ public class LoginPage extends BasePage {
         return password;
     }
 
-    public static String getUserName() { return userName; }
+    public static String getUserName() {
+        return userName;
+    }
 
     public static String getIdUserName() {
         return idUserName;
@@ -43,7 +42,9 @@ public class LoginPage extends BasePage {
         return idPassword;
     }
 
-    public static String getUrlLoginPage() { return urlLoginPage; }
+    public static String getUrlLoginPage() {
+        return urlLoginPage;
+    }
 
     public static String getIdLoginButton() {
         return idLoginButton;
