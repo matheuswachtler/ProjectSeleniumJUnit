@@ -18,8 +18,7 @@ public abstract class BaseTest {
 
     @AfterEach
     public void afterEach() {
-//        this.webDriver.quit();
-
+        this.webDriver.quit();
     }
 
 }
