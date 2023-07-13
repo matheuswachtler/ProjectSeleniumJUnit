@@ -1,5 +1,9 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 public class LoginPage extends BasePage {
 
     private static final String urlLoginPage = "https://www.saucedemo.com/";
@@ -9,30 +13,6 @@ public class LoginPage extends BasePage {
     private static final String idUserName = "user-name";
 
     private static final String idPassword = "password";
-
-    private static final String userName = "standard_user";
-
-    private static final String password = "secret_sauce";
-
-    private static final String fakeUserName = "fakeUsername";
-
-    private static final String fakePassword = "fakePassword";
-
-    public static String getFakePassword() {
-        return fakePassword;
-    }
-
-    public static String getFakeUserName() {
-        return fakeUserName;
-    }
-
-    public static String getPassword() {
-        return password;
-    }
-
-    public static String getUserName() {
-        return userName;
-    }
 
     public static String getIdUserName() {
         return idUserName;
@@ -48,6 +28,28 @@ public class LoginPage extends BasePage {
 
     public static String getIdLoginButton() {
         return idLoginButton;
+    }
+    public void attemptLoginWith(WebDriver webDriver, String username, String password) {
+        WebElement usernameForm = webDriver.findElement(By.id(getIdUserName()));
+        usernameForm.sendKeys(username);
+        WebElement passwordForm = webDriver.findElement(By.id(getIdPassword()));
+        passwordForm.sendKeys(password);
+        passwordForm.submit();
+    }
+
+    @Override
+    public boolean isThere(WebDriver webDriver) {
+        if (webDriver.getCurrentUrl().equals(getUrlLoginPage())){
+            return true;
+        }
+        else return false;
+    }
+
+    @Override
+    public void navigate(WebDriver webDriver) {
+        webDriver.get(getBaseUrl());
+        insertCookieOnWebDriver(webDriver);
+        webDriver.get(getUrlLoginPage());
     }
 
 }

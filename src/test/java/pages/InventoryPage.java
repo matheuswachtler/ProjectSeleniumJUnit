@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
+
 public class InventoryPage extends BasePage {
 
     private static final String urlInventoryPage = "https://www.saucedemo.com/inventory.html";
@@ -15,7 +17,6 @@ public class InventoryPage extends BasePage {
         return idShoppingCart;
     }
 
-
     public static String getIdAddItemToCart() {
         return idAddItemToCart;
     }
@@ -24,4 +25,19 @@ public class InventoryPage extends BasePage {
         return idRemoveItemToCart;
     }
 
+    @Override
+    public boolean isThere(WebDriver webDriver) {
+
+        if (webDriver.getCurrentUrl().equals(getUrlInventoryPage())){
+            return true;
+        }
+        else return false;
+    }
+
+    @Override
+    public void navigate(WebDriver webDriver) {
+        webDriver.get(getBaseUrl());
+        insertCookieOnWebDriver(webDriver);
+        webDriver.get(urlInventoryPage);
+    }
 }

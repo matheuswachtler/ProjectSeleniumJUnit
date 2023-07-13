@@ -1,13 +1,13 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
+
 public class CartPage extends BasePage {
 
 
     private static final String urlCartPage = "https://www.saucedemo.com/cart.html";
     private static final String idContinueShoppingButton = "continue-shopping";
     private static final String idCheckoutButton = "checkout";
-    private static final String urlInventoryPage = "https://www.saucedemo.com/inventory.html";
-    private static final String urlCheckoutPage = "https://www.saucedemo.com/checkout-step-one.html";
 
     public static String getUrlCartPage() {
         return urlCartPage;
@@ -21,14 +21,21 @@ public class CartPage extends BasePage {
         return idCheckoutButton;
     }
 
-    public static String getUrlInventoryPage() {
-        return urlInventoryPage;
+
+    @Override
+    public boolean isThere(WebDriver webDriver) {
+        if (webDriver.getCurrentUrl().equals(getUrlCartPage())){
+            return true;
+        }
+        else return false;
     }
 
-    public static String getUrlCheckoutPage() {
-        return urlCheckoutPage;
+    @Override
+    public void navigate(WebDriver webDriver) {
+        webDriver.get(getBaseUrl());
+        insertCookieOnWebDriver(webDriver);
+        webDriver.get(getUrlCartPage());
     }
-
 }
 
 
