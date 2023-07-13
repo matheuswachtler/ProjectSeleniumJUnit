@@ -15,10 +15,10 @@ public abstract class BaseTest {
         this.webDriver.manage().window().maximize();
 
     }
-//
-//    @AfterEach
-//    public void afterEach() {
-//        this.webDriver.quit();
-//    }
+
+    @AfterEach
+    public void afterEach() {
+        this.webDriver.quit();
+    }
 
 }
