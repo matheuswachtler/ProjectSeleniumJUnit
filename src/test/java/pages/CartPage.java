@@ -1,7 +1,5 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
-
 public class CartPage extends BasePage {
 
     public static final String URL_CART_PAGE = "https://www.saucedemo.com/cart.html";
@@ -9,7 +7,7 @@ public class CartPage extends BasePage {
     public static final String ID_CHECKOUT_BUTTON = "checkout";
 
     @Override
-    public boolean isThere(WebDriver webDriver) {
+    public boolean isThere() {
         if (webDriver.getCurrentUrl().equals(URL_CART_PAGE)){
             return true;
         }
@@ -17,9 +15,9 @@ public class CartPage extends BasePage {
     }
 
     @Override
-    public void navigate(WebDriver webDriver) {
+    public void navigate() {
         webDriver.get(BASE_URL);
-        insertCookieOnWebDriver(webDriver);
+        insertCookieOnWebDriver();
         webDriver.get(URL_CART_PAGE);
     }
 }

@@ -10,16 +10,19 @@ public class InventoryTest extends BaseTest {
 
     @Test
     public void shouldAddItemToCart() {
-        inventoryPage.navigate(this.webDriver);
-        inventoryPage.findAndClickButtonById(this.webDriver,InventoryPage.ID_ADD_ITEM_TO_CART);
-        Assertions.assertNotNull(inventoryPage.elementIsPresent(this.webDriver,InventoryPage.ID_REMOVE_ITEM_TO_CART));
+        inventoryPage.navigate();
+        inventoryPage.isThere();
+        inventoryPage.findAndClickButtonById(InventoryPage.ID_ADD_ITEM_TO_CART);
+        Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_REMOVE_ITEM_TO_CART));
+        Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_SHOPPING_CART));
     }
 
     @Test
     public void shouldRemoveItemToCart() {
         shouldAddItemToCart();
-        inventoryPage.findAndClickButtonById(this.webDriver,InventoryPage.ID_REMOVE_ITEM_TO_CART);
-        Assertions.assertNotNull(inventoryPage.elementIsPresent(this.webDriver,InventoryPage.ID_ADD_ITEM_TO_CART));
+        inventoryPage.findAndClickButtonById(InventoryPage.ID_REMOVE_ITEM_TO_CART);
+        Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_ADD_ITEM_TO_CART));
+        Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_SHOPPING_CART));
     }
 
 }

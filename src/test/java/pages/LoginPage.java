@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
@@ -15,7 +14,7 @@ public class LoginPage extends BasePage {
     public static final String ID_PASSWORD = "password";
 
 
-    public void attemptLoginWith(WebDriver webDriver, String username, String password) {
+    public void attemptLoginWith(String username, String password) {
         WebElement usernameLabel = webDriver.findElement(By.id(ID_USERNAME));
         usernameLabel.sendKeys(username);
         WebElement passwordLabel = webDriver.findElement(By.id(ID_PASSWORD));
@@ -24,7 +23,7 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    public boolean isThere(WebDriver webDriver) {
+    public boolean isThere() {
         if (webDriver.getCurrentUrl().equals(URL_LOGIN_PAGE)){
             return true;
         }
@@ -32,10 +31,10 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    public void navigate(WebDriver webDriver) {
-        webDriver.get(BASE_URL);
-        insertCookieOnWebDriver(webDriver);
-        webDriver.get(URL_LOGIN_PAGE);
+    public void navigate() {
+          this.webDriver.get(BASE_URL);
+          insertCookieOnWebDriver();
+          this.webDriver.get(URL_LOGIN_PAGE);
     }
 
 }

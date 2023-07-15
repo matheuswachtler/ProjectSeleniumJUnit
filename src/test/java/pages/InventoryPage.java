@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 
 public class InventoryPage extends BasePage {
 
@@ -10,7 +9,7 @@ public class InventoryPage extends BasePage {
     public static final String ID_REMOVE_ITEM_TO_CART = "remove-sauce-labs-backpack";
 
     @Override
-    public boolean isThere(WebDriver webDriver) {
+    public boolean isThere() {
 
         if (webDriver.getCurrentUrl().equals(URL_INVENTORY_PAGE)){
             return true;
@@ -19,9 +18,9 @@ public class InventoryPage extends BasePage {
     }
 
     @Override
-    public void navigate(WebDriver webDriver) {
+    public void navigate() {
         webDriver.get(BASE_URL);
-        insertCookieOnWebDriver(webDriver);
+        insertCookieOnWebDriver();
         webDriver.get(URL_INVENTORY_PAGE);
     }
 }

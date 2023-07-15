@@ -4,15 +4,15 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.BasePage;
 
 public abstract class BaseTest {
-
-    WebDriver webDriver;
+    public static WebDriver webDriver;
 
     @BeforeEach
     public void beforeEach() {
-        this.webDriver = new ChromeDriver();
-        this.webDriver.manage().window().maximize();
+        webDriver = new ChromeDriver();
+        webDriver.manage().window().maximize();
 
     }
 
