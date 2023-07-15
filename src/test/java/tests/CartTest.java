@@ -11,17 +11,15 @@ public class CartTest extends BaseTest {
     @Test
     public void shouldReturnWhenContinueShoppingButtonIsClicked() {
         cartPage.navigate(this.webDriver);
-        cartPage.findAndClickButtonById(this.webDriver, CartPage.getIdContinueShoppingButton());
-        Assertions.assertNull(cartPage.elementIsPresent(this.webDriver, CartPage.getIdCheckoutButton()));
-        Assertions.assertNull(cartPage.elementIsPresent(this.webDriver, CartPage.getIdCheckoutButton()));
+        cartPage.findAndClickButtonById(this.webDriver, CartPage.ID_CONTINUE_SHOPPING_BUTTON);
+        Assertions.assertNull(cartPage.elementIsPresent(this.webDriver, CartPage.ID_CHECKOUT_BUTTON));
     }
 
     @Test
     public void shouldGoToCheckoutPageWhenCheckoutButtonIsClicked() {
         cartPage.navigate(this.webDriver);
-        cartPage.findAndClickButtonById(this.webDriver, CartPage.getIdCheckoutButton());
-        Assertions.assertNull(cartPage.elementIsPresent(this.webDriver, CartPage.getIdCheckoutButton()));
-        Assertions.assertNull(cartPage.elementIsPresent(this.webDriver, CartPage.getIdCheckoutButton()));
+        cartPage.findAndClickButtonById(this.webDriver, CartPage.ID_CHECKOUT_BUTTON);
+        Assertions.assertNull(cartPage.elementIsPresent(this.webDriver, CartPage.ID_CHECKOUT_BUTTON));
     }
 
 }

@@ -5,16 +5,7 @@ import org.openqa.selenium.*;
 
 public abstract class BasePage {
 
-    private static final String baseUrl = "https://www.saucedemo.com/";
-
-    public static String getBaseUrl() {
-        return baseUrl;
-    }
-
-    public boolean compareCurrentUrl(WebDriver webDriver, String getUrl) {
-        String url = webDriver.getCurrentUrl();
-        return url.equals(getUrl);
-    }
+    public static final String BASE_URL = "https://www.saucedemo.com/";
 
     public WebElement elementIsPresent(WebDriver webDriver, String id) {
         try {
