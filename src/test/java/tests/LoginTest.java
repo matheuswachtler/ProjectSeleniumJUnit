@@ -5,21 +5,22 @@ import org.junit.jupiter.api.Test;
 import pages.LoginPage;
 
 public class LoginTest extends BaseTest {
-    LoginPage loginPage = new LoginPage();
 
     @Test
     public void shouldNotAcessWithInvalidData() {
-        loginPage.navigate();
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.navigate(LoginPage.URL_LOGIN_PAGE);
         loginPage.attemptLoginWith("fakeUsername","fakePassword");
-        Assertions.assertTrue(loginPage.isThere());
+        Assertions.assertTrue(loginPage.isThere(LoginPage.URL_LOGIN_PAGE));
         Assertions.assertNotNull(loginPage.elementIsPresent(LoginPage.ID_LOGIN_BUTTON));
     }
 
     @Test
     public void shouldAcessWithValidData() {
-        loginPage.navigate();
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.navigate(LoginPage.URL_LOGIN_PAGE);
         loginPage.attemptLoginWith("standard_user","secret_sauce");
-        Assertions.assertFalse(loginPage.isThere());
+        Assertions.assertFalse(loginPage.isThere(LoginPage.URL_LOGIN_PAGE));
         Assertions.assertNull(loginPage.elementIsPresent(LoginPage.ID_LOGIN_BUTTON));
     }
 }

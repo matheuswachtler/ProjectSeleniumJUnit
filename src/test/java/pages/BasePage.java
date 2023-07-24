@@ -1,12 +1,35 @@
 package pages;
 
 import org.openqa.selenium.*;
-import tests.BaseTest;
-
-public abstract class BasePage extends BaseTest {
+import org.openqa.selenium.support.PageFactory;
 
 
+public class BasePage {
+
+    protected WebDriver webDriver;
+
+    public BasePage(WebDriver webDriver){
+        this.webDriver = webDriver;
+        PageFactory.initElements(webDriver, this);
+    }
     public static final String BASE_URL = "https://www.saucedemo.com/";
+
+    public void navigate(String url) {
+        webDriver.get(BASE_URL);
+        insertCookieOnWebDriver();
+        this.webDriver.get(url);
+    }
+
+    public boolean isThere(String url) {
+        if (webDriver.getCurrentUrl().equals(url)){
+            return true;
+        }
+        else return false;
+    }
+
+
+
+
 
     public WebElement elementIsPresent(String id) {
 
@@ -28,8 +51,6 @@ public abstract class BasePage extends BaseTest {
         webDriver.manage().addCookie(cookie);
     }
 
-    public abstract boolean isThere();
 
-    public abstract void navigate();
 
 }
