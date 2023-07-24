@@ -27,10 +27,6 @@ public class BasePage {
         else return false;
     }
 
-
-
-
-
     public WebElement elementIsPresent(String id) {
 
         try {

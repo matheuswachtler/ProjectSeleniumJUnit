@@ -1,8 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
@@ -14,14 +14,17 @@ public class LoginPage extends BasePage {
 
     public static final String ID_PASSWORD = "password";
 
+    @FindBy(id = ID_USERNAME)
+    private WebElement usernameLabel;
+    @FindBy(id = ID_PASSWORD)
+    private WebElement passwordLabel;
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
 
     public void attemptLoginWith(String username, String password) {
-        WebElement usernameLabel = webDriver.findElement(By.id(ID_USERNAME));
         usernameLabel.sendKeys(username);
-        WebElement passwordLabel = webDriver.findElement(By.id(ID_PASSWORD));
         passwordLabel.sendKeys(password);
         passwordLabel.submit();
     }

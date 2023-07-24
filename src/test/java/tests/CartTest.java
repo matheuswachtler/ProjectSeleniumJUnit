@@ -7,8 +7,6 @@ import pages.CartPage;
 
 public class CartTest extends BaseTest {
 
-
-
     @Test
     public void shouldReturnWhenContinueShoppingButtonIsClicked() {
         CartPage cartPage = new CartPage(getDriver());
