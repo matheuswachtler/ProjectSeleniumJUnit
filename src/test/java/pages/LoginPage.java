@@ -10,13 +10,9 @@ public class LoginPage extends BasePage {
 
     public static final String ID_LOGIN_BUTTON = "login-button";
 
-    public static final String ID_USERNAME = "user-name";
-
-    public static final String ID_PASSWORD = "password";
-
-    @FindBy(id = ID_USERNAME)
+    @FindBy(id = "user-name")
     private WebElement usernameLabel;
-    @FindBy(id = ID_PASSWORD)
+    @FindBy(id = "password")
     private WebElement passwordLabel;
 
     public LoginPage(WebDriver webDriver) {

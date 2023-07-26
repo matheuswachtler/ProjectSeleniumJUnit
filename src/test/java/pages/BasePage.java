@@ -8,7 +8,8 @@ public class BasePage {
 
     protected WebDriver webDriver;
 
-    public BasePage(WebDriver webDriver){
+
+    public BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
     }
@@ -21,10 +22,9 @@ public class BasePage {
     }
 
     public boolean isThere(String url) {
-        if (webDriver.getCurrentUrl().equals(url)){
+        if (webDriver.getCurrentUrl().equals(url)) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
     public WebElement elementIsPresent(String id) {
@@ -46,7 +46,4 @@ public class BasePage {
         Cookie cookie = new Cookie("session-username", "standard_user");
         webDriver.manage().addCookie(cookie);
     }
-
-
-
 }
