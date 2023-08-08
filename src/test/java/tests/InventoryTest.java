@@ -9,8 +9,8 @@ public class InventoryTest extends BaseTest {
     @Test
     public void shouldAddItemToCart() {
         InventoryPage inventoryPage = new InventoryPage(getDriver());
-        inventoryPage.navigate(InventoryPage.URL_INVENTORY_PAGE);
-        Assertions.assertTrue(inventoryPage.isThere(InventoryPage.URL_INVENTORY_PAGE));
+        inventoryPage.navigate(inventoryPage.URL_INVENTORY_PAGE);
+        Assertions.assertTrue(inventoryPage.isThere(inventoryPage.URL_INVENTORY_PAGE));
         inventoryPage.findAndClickButtonById(InventoryPage.ID_ADD_ITEM_TO_CART);
         Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_REMOVE_ITEM_TO_CART));
         Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_SHOPPING_CART));
@@ -19,8 +19,8 @@ public class InventoryTest extends BaseTest {
     @Test
     public void shouldRemoveItemToCart() {
         InventoryPage inventoryPage = new InventoryPage(getDriver());
-        inventoryPage.navigate(InventoryPage.URL_INVENTORY_PAGE);
-        Assertions.assertTrue(inventoryPage.isThere(InventoryPage.URL_INVENTORY_PAGE));
+        inventoryPage.navigate(inventoryPage.URL_INVENTORY_PAGE);
+        Assertions.assertTrue(inventoryPage.isThere(inventoryPage.URL_INVENTORY_PAGE));
         inventoryPage.findAndClickButtonById(InventoryPage.ID_ADD_ITEM_TO_CART);
         Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_REMOVE_ITEM_TO_CART));
         Assertions.assertNotNull(inventoryPage.elementIsPresent(InventoryPage.ID_SHOPPING_CART));

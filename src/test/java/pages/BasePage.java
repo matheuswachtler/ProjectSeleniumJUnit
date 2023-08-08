@@ -46,4 +46,23 @@ public class BasePage {
         Cookie cookie = new Cookie("session-username", "standard_user");
         webDriver.manage().addCookie(cookie);
     }
+
+    public String getValue(WebElement element){
+       String elementValue = element.getAttribute("value");
+       return elementValue;
+    }
+
+    public void sendDataInForm(WebElement webElement, String data){
+        webElement.sendKeys(data);
+        webElement.submit();
+    }
+
+    public boolean findTextInPage(String data){
+      return webDriver.getPageSource().contains(data);
+    }
+
+    public void findAndClickButton(WebElement webElement){
+        webElement.click();
+    }
+
 }
