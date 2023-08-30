@@ -11,7 +11,6 @@ public class BasePage {
 
     public BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
     }
     public static final String BASE_URL = "https://www.saucedemo.com/";
 

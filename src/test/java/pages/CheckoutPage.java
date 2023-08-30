@@ -3,10 +3,12 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class CheckoutPage extends BasePage{
     public CheckoutPage(WebDriver webDriver) {
         super(webDriver);
+        PageFactory.initElements(webDriver,this);
     }
     public final String URL_CHECKOUT_PAGE = "https://www.saucedemo.com/checkout-step-one.html";
 

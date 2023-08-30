@@ -21,6 +21,7 @@ public class BaseTest {
             webDriver.manage().window().maximize();
         }
     }
+
     @AfterEach
     public void afterEach() {
         if (webDriver != null) {
