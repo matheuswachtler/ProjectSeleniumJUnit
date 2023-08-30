@@ -4,19 +4,29 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.Collections;
 
 public class BaseTest {
     private WebDriver webDriver;
 
     @BeforeEach
     public void beforeEach() {
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
+        if (webDriver == null) {
+            ChromeOptions options = new ChromeOptions();
+            options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+            System.setProperty("webdriver.chrome.driver", "E:/ProjetosPessoais/Selenium/ProjectSeleniumJUnit/src/test/resources/chromedriver.exe");
+            webDriver = new ChromeDriver();
+            webDriver.manage().window().maximize();
+        }
     }
-
     @AfterEach
     public void afterEach() {
-        this.webDriver.quit();
+        if (webDriver != null) {
+            webDriver.quit();
+            webDriver = null;
+        }
     }
 
     public WebDriver getDriver() {
