@@ -16,7 +16,7 @@ public class BaseTest {
         if (webDriver == null) {
             ChromeOptions options = new ChromeOptions();
             options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-            System.setProperty("webdriver.chrome.driver", "E:/ProjetosPessoais/Selenium/ProjectSeleniumJUnit/src/test/resources/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
         }
